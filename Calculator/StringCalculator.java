@@ -11,17 +11,15 @@ public class StringCalculator {
     }
 
     public int Add(String s) {
-
         count = count + 1;
         if(s.length()==0){
             return 0;
         }
         else if(s.contains(",") || s.contains("\n")){
-
             String[] numbers = SplitString(s);
 
-            List<Integer> arrlist = new ArrayList<>();
-            List<String> negativeNumbers = new ArrayList<>();
+            List<Integer> arrlist = new ArrayList<Integer>();
+            List<String> negativeNumbers = new ArrayList<String>();
 
             AddElementsFromArrayToList(arrlist,numbers,negativeNumbers);               //Add Elements From Array To List For Finding The Sum In Easy Way
             CheckForNegativeNumber(negativeNumbers);                                   //This Function Call Is For Throw An Exception If Negative Numbers Found
@@ -30,7 +28,6 @@ public class StringCalculator {
                     .filter(i -> i <= 1000 )
                     .mapToInt(i -> i)
                     .sum();
-
         }
         else{
             return typecast(s);                                                        //Return Integer Converted From String If Single Digit Is Found From String
@@ -59,7 +56,7 @@ public class StringCalculator {
     }
 
     private static String[] SplitStringByCustomDelimeter(String s) {
-
+        
         Pattern pattern1 = Pattern.compile("//(.)\n(.*)");                             //RegEx For Single Length Custom Delimeter
         Pattern pattern2 = Pattern.compile("//\\[(.*?)\\]\\[(.*?)\\]\n(.*)");          //RegEx For Multiple Delimeter Of Any Length
         Pattern pattern3 = Pattern.compile("//\\[(.*?)\\]\n(.*)");                     //RegEx For Single Delimeter Of Any Length
@@ -96,7 +93,6 @@ public class StringCalculator {
     }
 
     private static String[] RemoveNullString(String[] arr) {
-
         List<String> list=new ArrayList<String>();
 
         for(int i = 0; i < arr.length; i++){
@@ -115,7 +111,6 @@ public class StringCalculator {
     }
 
     private static void AddElementsFromArrayToList(List<Integer> arrList,String[] numbers,List<String> negativeNum) {
-
         for(int i = 0;i < numbers.length;i++){
             int temp = typecast(numbers[i]);
 
